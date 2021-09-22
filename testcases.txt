@@ -57,3 +57,6 @@ https://www.google.com
 
 # Null (You should write "Null" to avoid confusion with whitespace, and then the code will handle this transform from "Null" to an actual null
 Null
+
+# A search in its URL encoding
+https%3A%2F%2Fwww.google.com

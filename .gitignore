@@ -153,3 +153,6 @@ fabric.properties
 # Chrome Driver
 chromedriver.exe
 chromedriver_win32.zip
+
+# Text files
+driver_current_url.txt
