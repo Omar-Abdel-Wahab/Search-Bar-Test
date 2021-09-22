@@ -1,0 +1,57 @@
+# Numbers
+
+# Positive Decimal Numbers (one-digit, multi-digit)
+1
+85
+
+# Negative Decimal Numbers (one-digit, multi-digit)
+-6
+-2749
+
+# Floats
+3.14159
+
+# Zero
+0
+
+# Words (small case, Capital case, UPPER CASE)
+experiment
+Experiment
+EXPERIMENT
+
+# Words with typos (missing letter, extra letter)
+experimen
+experimentt
+
+# Different language
+تجربة
+
+# Sentence
+I'm working from home
+
+# Paragraph = 32 word limit
+Lorem Ipsum simply dummy text printing typesetting industry Lorem Ipsum industry's standard dummy text ever since 1500s unknown printer took paper Contrary popular belief Lorem Ipsum simply random text piece classical Latin
+
+# Paragraph > 32 word limit
+There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet
+
+# Gibberish
+asdfghjkl
+
+# Special characters in URL query
+?
+q
+&
+=
+
+# Special word operator in "Search"
+site:wikipedia.org
+
+# Special character operator in "Search"
+@wikipedia
+
+# URL
+https://www.google.com
+
+# Null (You should write "Null" to avoid confusion with whitespace, and then the code will handle this transform from "Null" to an actual null
+Null
