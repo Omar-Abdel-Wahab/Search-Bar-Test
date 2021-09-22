@@ -27,7 +27,9 @@ class SearchTest:
         try:
             with open(self.file_path, encoding="utf-8") as file:
                 lines = file.readlines()
+                # Remove trailing whitespace from every test case
                 test_cases = [line.rstrip() for line in lines if self.is_test_case(line)]
+                # Replace "Null" keywords in the test_cases.txt file with actual nulls
                 test_cases = [test_case if test_case != "Null" else "" for test_case in test_cases]
         except Exception as e:
             print(e)
