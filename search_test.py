@@ -15,48 +15,37 @@ class SearchTest:
         return True
 
     def driver_setup(self):
-        try:
-            self.driver = webdriver.Chrome(self.driver_path)
-        except Exception as e:
-            print(e)
-            quit()
+        self.driver = webdriver.Chrome(self.driver_path)
 
     def get_site(self):
-        try:
-            self.driver.get(self.site)
-        except Exception as e:
-            print(e)
-            quit()
+        self.driver.get(self.site)
 
     def extract_testcases(self):
-        try:
-            with open(self.file_path, encoding="utf-8") as file:
-                lines = file.readlines()
-                # Remove trailing whitespace from every testcase
-                testcases = [line.rstrip() for line in lines if self.is_testcase(line)]
-                # Replace "Null" keywords in the testcases.txt file with actual nulls
-                self.testcases = [testcase if testcase != "Null" else "" for testcase in testcases]
-        except Exception as e:
-            print(e)
-            quit()
+        with open(self.file_path, encoding="utf-8") as file:
+            lines = file.readlines()
+            # Remove trailing whitespace from every testcase
+            testcases = [line.rstrip() for line in lines if self.is_testcase(line)]
+            # Replace "Null" keywords in the testcases.txt file with actual nulls
+            self.testcases = [testcase if testcase != "Null" else "" for testcase in testcases]
 
     def test_single_testcase(self, testcase):
-        try:
-            search_bar = self.driver.find_element_by_name("q")
-            search_bar.clear()
-            search_bar.send_keys(testcase)
-            search_bar.send_keys(Keys.RETURN)
-        except Exception as e:
-            print(e)
+        search_bar = self.driver.find_element_by_name("q")
+        search_bar.clear()
+        search_bar.send_keys(testcase)
+        search_bar.send_keys(Keys.RETURN)
 
 
 def test_search_bar(search_bar):
-    search_bar.driver_setup()
-    search_bar.extract_testcases()
-    search_bar.get_site()
-    for search_bar_testcase in search_bar.testcases:
-        search_bar.test_single_testcase(search_bar_testcase)
-    search_bar.driver.close()
+    try:
+        search_bar.driver_setup()
+        search_bar.extract_testcases()
+        search_bar.get_site()
+        for search_bar_testcase in search_bar.testcases:
+            search_bar.test_single_testcase(search_bar_testcase)
+        search_bar.driver.close()
+    except Exception as e:
+        print(e)
+        quit()
 
 
 if __name__ == "__main__":
