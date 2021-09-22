@@ -19,12 +19,14 @@ class SearchTest:
             self.driver = webdriver.Chrome(self.driver_path)
         except Exception as e:
             print(e)
+            quit()
 
     def get_site(self):
         try:
             self.driver.get(self.site)
         except Exception as e:
             print(e)
+            quit()
 
     def extract_testcases(self):
         try:
@@ -36,6 +38,7 @@ class SearchTest:
                 self.testcases = [testcase if testcase != "Null" else "" for testcase in testcases]
         except Exception as e:
             print(e)
+            quit()
 
     def test_single_testcase(self, testcase):
         try:
@@ -58,5 +61,5 @@ def test_search_bar(search_bar):
 
 if __name__ == "__main__":
 
-    google_bar = SearchTest("test_cases.txt", "./chromedriver.exe", "https://www.google.com")
+    google_bar = SearchTest("testcases.txt", "./chromedriver.exe", "https://www.google.com")
     test_search_bar(google_bar)

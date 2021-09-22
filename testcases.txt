@@ -43,10 +43,8 @@ There are many variations of passages of Lorem Ipsum available, but the majority
 asdfghjkl
 
 # Special characters in URL query
-?
-q
+?q=
 &
-=
 
 # Special word operator in "Search"
 site:wikipedia.org
