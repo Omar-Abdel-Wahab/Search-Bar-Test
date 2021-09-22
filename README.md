@@ -2,7 +2,7 @@
 
 > How to test a search bar?
 
-This project aims to open up ideas to test search bars with adequate coverage
+This project aims to open up ideas to test search bars with adequate coverage, and using Google as an example
 
 ### Used Test Scenarios
 
