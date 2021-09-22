@@ -26,6 +26,7 @@ B) Letters
 - Special character operator in advanced search
 - URL
 - Null
+- A search in its URL encoding
 
 
 ## Built With
