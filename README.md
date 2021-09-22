@@ -36,6 +36,7 @@ B) Letters
 
 - Python 3.8.3
 - Selenium 3.141.0
+- Webdriver (Chromedriver in my case, and the version depends on the browser version)
 
 ## 🤝  Resources
 
@@ -45,6 +46,10 @@ B) Letters
 - Github (which I used to find awesome readme templates like this one :fire:)
 - Wikipedia (Google advanced search using operators)
 - Google guide (helped with knowing more about the search limit and other useful tips)
+
+## Useful links
+
+- Install any Webdriver: https://www.browserstack.com/guide/python-selenium-to-run-web-automation-test
 
 ## Show your support
 
