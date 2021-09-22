@@ -9,48 +9,54 @@ class SearchTest:
         self.site = site
 
     @staticmethod
-    def is_test_case(line):
+    def is_testcase(line):
         if line.startswith("\n") or line.startswith("#"):
             return False
         return True
 
     def driver_setup(self):
         try:
-            driver = webdriver.Chrome(self.driver_path)
-            driver.get(self.site)
+            self.driver = webdriver.Chrome(self.driver_path)
         except Exception as e:
             print(e)
-        else:
-            return driver
 
-    def extract_test_cases(self):
+    def get_site(self):
+        try:
+            self.driver.get(self.site)
+        except Exception as e:
+            print(e)
+
+    def extract_testcases(self):
         try:
             with open(self.file_path, encoding="utf-8") as file:
                 lines = file.readlines()
-                # Remove trailing whitespace from every test case
-                test_cases = [line.rstrip() for line in lines if self.is_test_case(line)]
-                # Replace "Null" keywords in the test_cases.txt file with actual nulls
-                test_cases = [test_case if test_case != "Null" else "" for test_case in test_cases]
+                # Remove trailing whitespace from every testcase
+                testcases = [line.rstrip() for line in lines if self.is_testcase(line)]
+                # Replace "Null" keywords in the testcases.txt file with actual nulls
+                self.testcases = [testcase if testcase != "Null" else "" for testcase in testcases]
         except Exception as e:
             print(e)
-        else:
-            return test_cases
 
-    def test(self):
-        driver = self.driver_setup()
-        test_cases = self.extract_test_cases()
+    def test_single_testcase(self, testcase):
         try:
-            for test_case in test_cases:
-                search_bar = driver.find_element_by_name("q")
-                search_bar.clear()
-                search_bar.send_keys(test_case)
-                search_bar.send_keys(Keys.RETURN)
-            driver.close()
+            search_bar = self.driver.find_element_by_name("q")
+            search_bar.clear()
+            search_bar.send_keys(testcase)
+            search_bar.send_keys(Keys.RETURN)
         except Exception as e:
             print(e)
+
+
+def test_search_bar(search_bar):
+    search_bar.driver_setup()
+    search_bar.extract_testcases()
+    search_bar.get_site()
+    for search_bar_testcase in search_bar.testcases:
+        search_bar.test_single_testcase(search_bar_testcase)
+    search_bar.driver.close()
 
 
 if __name__ == "__main__":
 
-    google_test = SearchTest("test_cases.txt", "./chromedriver.exe", "https://www.google.com")
-    google_test.test()
+    google_bar = SearchTest("test_cases.txt", "./chromedriver.exe", "https://www.google.com")
+    test_search_bar(google_bar)
