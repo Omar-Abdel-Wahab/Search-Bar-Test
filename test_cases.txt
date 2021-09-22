@@ -13,6 +13,11 @@
 # Zero
 0
 
+
+# Letters
+# Characters
+d
+
 # Words (small case, Capital case, UPPER CASE)
 experiment
 Experiment
