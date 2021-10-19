@@ -1,12 +1,13 @@
 import unittest
 import urllib.parse
-from search_test import *
+from search_tester import SearchTester
+from constants import *
 
 
 class ChromeSearch(unittest.TestCase):
 
     def setUp(self):
-        self.google_search_bar = SearchTest(TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL)
+        self.google_search_bar = SearchTester(TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL)
         self.google_search_bar.setup_driver()
 
     def test_google_search_bar(self):

@@ -1,13 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import logging
-
-TESTCASES_FILE_PATH = "./testcases.txt"
-DRIVER_FILE_PATH = "./chromedriver.exe"
-SITE_URL = "https://www.google.com"
+from constants import TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL
 
 
-class SearchTest:
+class SearchTester:
     def __init__(self, file_path, driver_path, site):
         self._file_path = file_path
         self._driver_path = driver_path
@@ -16,19 +13,23 @@ class SearchTest:
         self._testcases = None
         # self._current_testcase = None
 
-    def test_search_bar_error(self):
+    def try_test_search_bar(self):
         try:
-            self.test_search_bar()
+            self._test_search_bar()
         except Exception as e:
-            logging.error(f'Error: {e}', exc_info=True)
-            quit()
+            self._handle_search_bar_exception(e)
 
-    def test_search_bar(self):
+    def _test_search_bar(self):
         self.setup_driver()
         self.extract_testcases()
         self.get_site()
         self.test_all_testcases()
         self.close_driver()
+
+    @staticmethod
+    def _handle_search_bar_exception(exception):
+        logging.error(f'Error: {exception}', exc_info=True)
+        quit()
 
     def setup_driver(self):
         self._driver = webdriver.Chrome(self._driver_path)
@@ -38,12 +39,12 @@ class SearchTest:
         with open(self._file_path, encoding="utf-8") as file:
             lines = file.readlines()
             # Remove trailing whitespace from every testcase
-            testcases = [line.rstrip() for line in lines if self.is_testcase(line)]
+            testcases = [line.rstrip() for line in lines if self._is_testcase(line)]
             # Replace "Null" keywords in the testcases.txt file with actual nulls
             self._testcases = [testcase if testcase != null_keyword else "" for testcase in testcases]
 
     @staticmethod
-    def is_testcase(line):
+    def _is_testcase(line):
         # Newline or a comment in the text file
         if line.startswith("\n") or line.startswith("#"):
             return False
@@ -72,5 +73,5 @@ class SearchTest:
 
 if __name__ == "__main__":
 
-    google_search_bar = SearchTest(TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL)
-    google_search_bar.test_search_bar()
+    google_search_bar = SearchTester(TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL)
+    google_search_bar.try_test_search_bar()
