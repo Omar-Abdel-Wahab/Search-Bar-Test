@@ -1,6 +1,6 @@
 import unittest
 import urllib.parse
-from src.search_tester import SearchTester
+from src.search_bar import SearchTester
 from constants.search_bar_constants import *
 
 
