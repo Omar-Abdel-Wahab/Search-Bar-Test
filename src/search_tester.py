@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import logging
-from constants import TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL
+from constants.search_bar_constants import TESTCASES_FILE_PATH, DRIVER_FILE_PATH, SITE_URL
 
 
 class SearchTester:

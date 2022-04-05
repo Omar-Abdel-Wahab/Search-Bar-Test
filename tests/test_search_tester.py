@@ -1,7 +1,7 @@
 import unittest
 import urllib.parse
-from search_tester import SearchTester
-from constants import *
+from src.search_tester import SearchTester
+from constants.search_bar_constants import *
 
 
 class ChromeSearch(unittest.TestCase):
