@@ -3,10 +3,10 @@ from src.google_search_requests import search
 
 def search_testcases(testcases):
     for testcase in testcases:
-        search_result = search(testcase)
-        print(search_result.url)
-        print(search_result.ok)
-        print(search_result.status_code)
+        response = search(testcase)
+        print(response.url)
+        print(response.ok)
+        print(response.status_code)
 
 
 if __name__ == "__main__":
