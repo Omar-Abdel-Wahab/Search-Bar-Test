@@ -1,5 +1,5 @@
 from constants.search_bar_constants import GOOGLE_SEARCH_URL
-from src.chrome_browser import ChromeBrowser
+from src.webdrivers.chrome_browser import ChromeBrowser
 
 
 def search_testcases(testcases):

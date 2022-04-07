@@ -2,14 +2,14 @@ import unittest
 from unittest.mock import patch
 
 from constants.search_bar_constants import GOOGLE_SEARCH_URL
-from src.google_search_requests import search
+from src.requests.google_search_requests import search
 
 
 class TestSearch(unittest.TestCase):
 
     @staticmethod
     def perform_test(testcase):
-        with patch('src.google_search_requests.get') as mocked_get:
+        with patch('src.requests.google_search_requests.get') as mocked_get:
             mocked_get.return_value.status_code = 200
 
             response = search(testcase)

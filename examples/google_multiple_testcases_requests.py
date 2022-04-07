@@ -1,4 +1,4 @@
-from src.google_search_requests import search
+from src.requests.google_search_requests import search
 
 
 def search_testcases(testcases):
