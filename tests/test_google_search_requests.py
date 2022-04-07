@@ -9,7 +9,7 @@ class TestSearch(unittest.TestCase):
 
     @staticmethod
     def perform_test(testcase):
-        with patch('src.requests.google_search_requests.get') as mocked_get:
+        with patch('src.requests.search_requests.get') as mocked_get:
             mocked_get.return_value.status_code = 200
 
             response = search(GOOGLE_SEARCH_URL, testcase)
