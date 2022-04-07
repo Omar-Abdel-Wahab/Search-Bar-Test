@@ -12,7 +12,7 @@ class TestSearch(unittest.TestCase):
         with patch('src.requests.google_search_requests.get') as mocked_get:
             mocked_get.return_value.status_code = 200
 
-            response = search(testcase)
+            response = search(GOOGLE_SEARCH_URL, testcase)
 
             mocked_get.assert_called_with(f"{GOOGLE_SEARCH_URL}{testcase}")
             assert response.status_code == 200

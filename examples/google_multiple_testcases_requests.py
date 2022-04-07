@@ -1,9 +1,10 @@
 from src.requests.google_search_requests import search
+from constants.search_bar_constants import GOOGLE_SEARCH_URL
 
 
 def search_testcases(testcases):
     for testcase in testcases:
-        response = search(testcase)
+        response = search(GOOGLE_SEARCH_URL, testcase)
         print(response.url)
         print(response.ok)
         print(response.status_code)
