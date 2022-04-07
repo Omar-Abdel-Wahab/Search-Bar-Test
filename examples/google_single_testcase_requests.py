@@ -1,4 +1,4 @@
-from src.search_bar import search
+from src.google_search_requests import search
 
 if __name__ == "__main__":
     search_result = search("something")

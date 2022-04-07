@@ -1,4 +1,4 @@
-from src.search_bar import search
+from src.google_search_requests import search
 
 
 def search_testcases(testcases):

@@ -2,10 +2,10 @@ import unittest
 from unittest.mock import patch
 
 from constants.search_bar_constants import GOOGLE_SEARCH_URL
-from src.search_bar import search
+from src.google_search_requests import search
 
 
-@patch("src.search_bar.get")
+@patch("src.google_search_requests.get")
 class TestSearch(unittest.TestCase):
 
     def test_positive_one_digit(self, mocked_get):
