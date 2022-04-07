@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch
 
 from constants.search_bar_constants import GOOGLE_SEARCH_URL
-from src.requests.google_search_requests import search
+from src.requests.search_requests import search
 
 
 class TestSearch(unittest.TestCase):

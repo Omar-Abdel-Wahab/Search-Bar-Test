@@ -1,4 +1,4 @@
-from src.requests.google_search_requests import search
+from src.requests.search_requests import search
 from constants.search_bar_constants import GOOGLE_SEARCH_URL
 
 if __name__ == "__main__":
